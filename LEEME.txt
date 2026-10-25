@@ -1,0 +1,16 @@
+PÁGINA PARA GITHUB PAGES
+
+Archivos:
+- index.html
+- imagen-pago.jpeg
+
+PUBLICAR:
+1. Crea un repositorio en GitHub.
+2. Sube index.html e imagen-pago.jpeg a la raíz del repositorio (no dentro de otra carpeta).
+3. Ve a Settings > Pages.
+4. En Build and deployment, elige Deploy from a branch.
+5. Selecciona la rama main y la carpeta /(root), y guarda.
+6. Espera a que GitHub publique la página y abre la URL que aparece en Settings > Pages.
+
+La página muestra la imagen completa y se adapta al ancho de celulares y computadores.
+Importante: antes de publicar, prueba el QR desde otro dispositivo y confirma que la llave y los datos de pago estén correctos.
