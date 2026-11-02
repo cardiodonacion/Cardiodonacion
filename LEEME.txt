@@ -1,16 +1,24 @@
-PÁGINA PARA GITHUB PAGES
+RECURRENTES — SITIO WEB
+========================
 
-Archivos:
-- index.html
-- imagen-pago.jpeg
+CONTENIDO
+- index.html: sitio web completo (HTML, CSS y JavaScript integrados).
 
-PUBLICAR:
-1. Crea un repositorio en GitHub.
-2. Sube index.html e imagen-pago.jpeg a la raíz del repositorio (no dentro de otra carpeta).
-3. Ve a Settings > Pages.
-4. En Build and deployment, elige Deploy from a branch.
-5. Selecciona la rama main y la carpeta /(root), y guarda.
-6. Espera a que GitHub publique la página y abre la URL que aparece en Settings > Pages.
+PUBLICAR EN GITHUB PAGES
+1. Descomprime recurrentes_web.zip.
+2. En GitHub crea un repositorio público, por ejemplo: recurrentes.
+3. Sube index.html a la raíz del repositorio.
+4. Ve a Settings > Pages.
+5. En "Build and deployment", selecciona "Deploy from a branch".
+6. Selecciona la rama main y la carpeta /(root), guarda.
+7. GitHub mostrará la URL pública cuando termine la publicación.
 
-La página muestra la imagen completa y se adapta al ancho de celulares y computadores.
-Importante: antes de publicar, prueba el QR desde otro dispositivo y confirma que la llave y los datos de pago estén correctos.
+PERSONALIZACIÓN PENDIENTE ANTES DE PRESENTAR A WOMPI
+- Completar la descripción exacta de los servicios realmente prestados.
+- Verificar que la actividad ofrecida coincida con el RUT y con la información declarada ante Wompi.
+- Publicar una política completa de tratamiento de datos personales y condiciones de contratación ajustadas al negocio.
+- Confirmar que dirección y teléfonos estén correctos.
+- Si se agrega correo electrónico, reemplazar el dato en la web por el correo real.
+
+IMPORTANTE
+El chat es un asistente automático local con respuestas predeterminadas. No utiliza IA, no guarda conversaciones y no transfiere mensajes a un operador. Los botones de WhatsApp abren conversaciones externas. La web no procesa pagos ni solicita datos de tarjetas.

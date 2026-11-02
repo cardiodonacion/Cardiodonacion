@@ -1,18 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e9165b">
-  <title>Pago Bre-B | MOVii Negocios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recurrentes: atención personalizada y canales directos para solicitar información y contratar servicios.">
+  <meta name="theme-color" content="#101827">
+  <title>Recurrentes | Atención y servicios</title>
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; min-height: 100%; background: #ededed; }
-    body { display: flex; justify-content: center; }
-    img { display: block; width: 100%; max-width: 1024px; height: auto; }
+    :root{--bg:#0b1220;--panel:#111c2e;--panel2:#16243a;--ink:#f4f7fb;--muted:#aab7ca;--line:rgba(255,255,255,.12);--cyan:#53d6d0;--blue:#6997ff;--gold:#f0c879}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}
+    .topline{height:4px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--gold))}
+    header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.13em}.mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#071321;font-weight:950;font-size:19px;box-shadow:0 8px 28px #53d6d033}
+    .navlinks{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--cyan)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:12px;border:1px solid transparent;font-weight:750;transition:.2s transform,.2s box-shadow,.2s background}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0005}
+    .primary{background:linear-gradient(110deg,var(--cyan),#8ce4d7);color:#071321}.secondary{border-color:var(--line);background:#ffffff0a;color:var(--ink)}.wa{background:#1fbd72;color:#062016}.small{padding:10px 14px;font-size:13px}
+    .hero{position:relative;overflow:hidden;padding:94px 0 82px;background:radial-gradient(ellipse at 80% 15%,#426fc533,transparent 34%),radial-gradient(ellipse at 12% 80%,#53d6d01c,transparent 35%)}
+    .hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff12;border-radius:50%;right:-110px;bottom:-210px;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff05}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+    h1{font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:-.055em;margin:20px 0}.gradient{background:linear-gradient(90deg,#fff,var(--cyan) 65%,#9db9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{max-width:600px;color:var(--muted);font-size:18px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hero-card{background:linear-gradient(145deg,#192943,#101a2b);border:1px solid var(--line);border-radius:25px;padding:28px;box-shadow:0 30px 80px #0006;transform:rotate(1deg)}
+    .orbit{width:100%;aspect-ratio:1.15;display:grid;place-items:center;position:relative;border-radius:18px;background:radial-gradient(circle at center,#53d6d022,transparent 48%),linear-gradient(135deg,#ffffff08,#ffffff02);overflow:hidden}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #53d6d044;border-radius:50%;width:220px;height:220px}.orbit:after{width:290px;height:290px;border-color:#6997ff33}
+    .core{z-index:1;width:118px;height:118px;border-radius:32px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#071321;font-size:38px;font-weight:950;box-shadow:0 0 55px #53d6d044}
+    .float{position:absolute;z-index:2;padding:9px 12px;background:#17263b;border:1px solid var(--line);border-radius:11px;font-size:12px;color:#dce8f8;box-shadow:0 10px 25px #0005}.f1{top:17%;left:9%}.f2{right:7%;top:27%}.f3{bottom:15%;left:24%}
+    .card-foot{display:flex;justify-content:space-between;gap:15px;margin-top:20px;color:var(--muted);font-size:12px}.card-foot strong{color:var(--ink);display:block;font-size:15px}
+    section{padding:78px 0}.section-head{max-width:700px;margin-bottom:34px}.kicker{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacing:-.035em;margin:12px 0}.section-head p{color:var(--muted);margin:0}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.feature{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px;transition:.25s}.feature:hover{transform:translateY(-5px);border-color:#53d6d066;background:var(--panel2)}
+    .ico{width:45px;height:45px;border-radius:13px;display:grid;place-items:center;background:#53d6d018;color:var(--cyan);font-size:21px;margin-bottom:18px}.feature h3{margin:0 0 8px;font-size:18px}.feature p{color:var(--muted);font-size:14px;margin:0}
+    .contact-band{background:linear-gradient(120deg,#162a3c,#17243d);border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:25px}.contact-band h2{margin:0 0 7px;font-size:clamp(25px,3vw,36px)}.contact-band p{margin:0;color:var(--muted)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.contact-card h3{margin:0 0 8px}.contact-card p{color:var(--muted);margin:0 0 15px;font-size:14px}
+    .phone{font-size:19px;font-weight:800;letter-spacing:.02em;margin:5px 0 14px}.address{color:#dce8f8}
+    footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.legal{display:flex;gap:18px;flex-wrap:wrap}.legal a:hover{color:var(--cyan)}
+    .notice{font-size:12px;color:#8393aa;margin-top:20px}
+    /* Chat */
+    .chat-launch{position:fixed;right:22px;bottom:22px;z-index:40;border:0;border-radius:999px;background:linear-gradient(120deg,var(--cyan),#8ce4d7);color:#071321;padding:14px 18px;font-weight:850;box-shadow:0 12px 35px #0008;display:flex;gap:9px;align-items:center}
+    .chat{position:fixed;right:22px;bottom:86px;width:min(360px,calc(100vw - 30px));height:490px;max-height:70vh;background:#101c2d;border:1px solid #ffffff25;border-radius:20px;z-index:40;box-shadow:0 25px 70px #000b;display:none;overflow:hidden;flex-direction:column}.chat.open{display:flex}
+    .chat-head{padding:16px;background:linear-gradient(110deg,#1d4250,#20365a);display:flex;justify-content:space-between;align-items:center}.chat-head strong{display:block}.chat-head small{color:#c4d5e5}.close{border:0;background:#ffffff18;color:white;border-radius:8px;padding:6px 10px}
+    .messages{padding:15px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}.msg{padding:10px 12px;border-radius:13px;max-width:88%;font-size:13px;white-space:pre-wrap}.bot{background:#1d2b40;color:#eaf2fc;align-self:flex-start;border-bottom-left-radius:4px}.user{background:#3caaa5;color:#041a1b;align-self:flex-end;border-bottom-right-radius:4px}
+    .quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}.quick button{border:1px solid #53d6d066;background:#152a3a;color:#b9f2e9;border-radius:20px;padding:7px 10px;font-size:11px}
+    .chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chat-input input{min-width:0;flex:1;background:#0b1524;border:1px solid var(--line);border-radius:10px;padding:11px;color:white;outline:none}.chat-input button{border:0;border-radius:10px;background:var(--cyan);color:#06191a;padding:0 13px;font-weight:800}
+    @media(max-width:800px){.navlinks{display:none}.hero{padding:68px 0}.hero-grid{grid-template-columns:1fr;gap:35px}.hero-card{max-width:520px}.grid3{grid-template-columns:1fr}.contact-band{align-items:flex-start;flex-direction:column}.contact-grid{grid-template-columns:1fr}section{padding:60px 0}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <img src="imagen-pago.jpeg" alt="Información de pago Bre-B y MOVii Negocios con código QR y llave del negocio">
+  <div class="topline"></div>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#inicio" aria-label="Recurrentes, inicio"><span class="mark">R.</span><span>RECURRENTES</span></a>
+        <div class="navlinks"><a href="#nosotros">Nosotros</a><a href="#atencion">Atención</a><a href="#contacto">Contacto</a></div>
+        <a class="btn primary small" href="#contacto">Solicitar atención <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Atención cercana · Comunicación directa</div>
+          <h1>Conectamos tus ideas con <span class="gradient">la atención que necesitas.</span></h1>
+          <p class="lead">En Recurrentes queremos escucharte. Cuéntanos qué servicio estás buscando y nuestro equipo te orientará sobre los siguientes pasos, disponibilidad y opciones de atención.</p>
+          <div class="actions">
+            <a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">☏ WhatsApp principal</a>
+            <a class="btn secondary" target="_blank" rel="noopener" href="https://wa.me/573217543838?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Contactar segunda línea ↗</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="orbit">
+            <span class="float f1">Atención personalizada</span><span class="float f2">Canales directos</span><span class="float f3">Estamos para orientarte</span>
+            <div class="core">R.</div>
+          </div>
+          <div class="card-foot"><div><strong>RECURRENTES</strong>Un primer contacto sencillo</div><div style="text-align:right">Bogotá D.C.<strong>Colombia</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Una atención clara</div><h2>Tu solicitud empieza con una conversación.</h2><p>Queremos que encuentres un canal sencillo para resolver tus inquietudes y conocer las condiciones de cada servicio antes de contratar.</p></div>
+        <div class="grid3">
+          <article class="feature"><div class="ico">✦</div><h3>Orientación inicial</h3><p>Cuéntanos qué necesitas. Te indicaremos cómo continuar y qué información hace falta para atender tu solicitud.</p></article>
+          <article class="feature"><div class="ico">◉</div><h3>Contacto directo</h3><p>Comunícate por cualquiera de nuestras líneas de WhatsApp para recibir orientación personalizada.</p></article>
+          <article class="feature"><div class="ico">✓</div><h3>Información transparente</h3><p>Antes de contratar, podrás consultar alcance, disponibilidad, tiempos y condiciones del servicio solicitado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="atencion">
+      <div class="wrap">
+        <div class="contact-band">
+          <div><div class="kicker">¿Tienes una solicitud?</div><h2>Hablemos de lo que necesitas.</h2><p>Elige una línea y envíanos tu mensaje predeterminado.</p></div>
+          <a class="btn primary" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio." target="_blank" rel="noopener">Iniciar conversación ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Canales de atención</div><h2>Estamos a un mensaje de distancia.</h2><p>Selecciona el medio que prefieras. Al pulsar WhatsApp se abrirá una conversación con el mensaje inicial listo para enviar.</p></div>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>WhatsApp · Línea 1</h3><div class="phone">304 555 2432</div><p>Para consultas, información y solicitudes de servicio.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Abrir WhatsApp ↗</a></article>
+          <article class="contact-card"><h3>WhatsApp · Línea 2</h3><div class="phone">321 754 3838</div><p>Línea alternativa para recibir orientación y seguimiento.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/573217543838?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Abrir WhatsApp ↗</a></article>
+          <article class="contact-card"><h3>Responsable de atención</h3><div class="phone">Kevin Bertel</div><p>Contacto para solicitudes y orientación comercial.</p><span class="address">Atención mediante las líneas de WhatsApp.</span></article>
+          <article class="contact-card"><h3>Dirección</h3><div class="phone">Bogotá D.C.</div><p class="address">Calle 12A # 71B - 61</p><span class="address">Colombia</span></article>
+        </div>
+        <p class="notice">Los canales de WhatsApp son enlaces externos. La disponibilidad y los tiempos de respuesta pueden variar. La contratación solo se entiende confirmada cuando se acuerden expresamente el servicio, su alcance, precio y condiciones.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot"><div><strong style="color:#fff;letter-spacing:.13em">RECURRENTES</strong><div>© <span id="year"></span> Recurrentes. Todos los derechos reservados.</div></div><div class="legal"><a href="#privacidad" onclick="openLegal('privacy')">Privacidad</a><a href="#condiciones" onclick="openLegal('terms')">Términos y condiciones</a></div></div>
+  </footer>
+
+  <div id="privacy" hidden></div><div id="terms" hidden></div>
+  <button class="chat-launch" id="chatLaunch" aria-label="Abrir asistente virtual">✧ Chat en línea</button>
+  <div class="chat" id="chat" role="dialog" aria-label="Asistente virtual de Recurrentes">
+    <div class="chat-head"><div><strong>Asistente Recurrentes</strong><small>Orientación automática · Respuestas básicas</small></div><button class="close" id="chatClose" aria-label="Cerrar chat">✕</button></div>
+    <div class="messages" id="messages">
+      <div class="msg bot">¡Hola! 👋 Soy el asistente virtual de Recurrentes. Puedo orientarte con información básica. ¿Qué te gustaría consultar?</div>
+      <div class="quick">
+        <button data-q="servicios">Quiero conocer los servicios</button><button data-q="contacto">Líneas de atención</button><button data-q="horario">Horarios</button><button data-q="contratar">Quiero contratar</button>
+      </div>
+    </div>
+    <form class="chat-input" id="chatForm"><input id="chatText" placeholder="Escribe tu consulta..." autocomplete="off" aria-label="Escribe tu consulta"><button type="submit">Enviar</button></form>
+  </div>
+
+  <script>
+    const msgText = "Hola, me gustaría una llamada o un mensaje por correo para tomar un servicio.";
+    const wa1 = "https://wa.me/573045552432?text=" + encodeURIComponent(msgText);
+    const wa2 = "https://wa.me/573217543838?text=" + encodeURIComponent(msgText);
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const chat = document.getElementById('chat'), messages = document.getElementById('messages');
+    document.getElementById('chatLaunch').addEventListener('click',()=>chat.classList.toggle('open'));
+    document.getElementById('chatClose').addEventListener('click',()=>chat.classList.remove('open'));
+    function addMessage(text,kind='bot'){const el=document.createElement('div');el.className='msg '+kind;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;}
+    function reply(input){
+      const q=input.toLowerCase();
+      if(/servicio|ofrecen|hacen|catálogo/.test(q)) return "Con gusto te orientamos. Cuéntanos qué servicio necesitas para indicarte si podemos atender tu solicitud. Para conocer el alcance, disponibilidad y precio, comunícate con nuestro equipo por WhatsApp.";
+      if(/contacto|whatsapp|teléfono|linea|línea|llamar/.test(q)) return "Puedes comunicarte con nuestras líneas de atención:\n• 304 555 2432\n• 321 754 3838\n\nSelecciona una línea para continuar por WhatsApp.";
+      if(/horario|abierto|atienden/.test(q)) return "La atención se coordina directamente por WhatsApp. Escríbenos para confirmar disponibilidad y horario de respuesta.";
+      if(/contratar|tomar|precio|costo|valor|pagar/.test(q)) return "¡Claro! Para iniciar una solicitud, escríbenos por WhatsApp. El equipo confirmará el servicio, alcance, precio y condiciones antes de cualquier contratación.";
+      if(/correo|email/.test(q)) return "Por ahora, los canales de contacto publicados son WhatsApp. Puedes solicitar que el equipo te contacte por correo al iniciar la conversación.";
+      return "Gracias por escribirnos. Para darte una respuesta precisa, nuestro equipo puede orientarte directamente. Te sugiero comunicarte por cualquiera de estas líneas: 304 555 2432 o 321 754 3838.";
+    }
+    function quickReply(q){addMessage(q,'user');addMessage(reply(q));addQuickLinks();}
+    function addQuickLinks(){const box=document.createElement('div');box.className='quick';[['WhatsApp 1',wa1],['WhatsApp 2',wa2]].forEach(([label,url])=>{const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;a.style.cssText='border:1px solid #53d6d066;background:#152a3a;color:#b9f2e9;border-radius:20px;padding:7px 10px;font-size:11px';box.appendChild(a)});messages.appendChild(box);messages.scrollTop=messages.scrollHeight;}
+    document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>quickReply(({servicios:'Quiero conocer los servicios',contacto:'¿Cuáles son las líneas de atención?',horario:'¿Cuál es el horario de atención?',contratar:'Quiero contratar un servicio'})[b.dataset.q])));
+    document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('chatText');const value=input.value.trim();if(!value)return;addMessage(value,'user');addMessage(reply(value));addQuickLinks();input.value='';});
+    function openLegal(type){const content=type==='privacy'
+      ? "POLÍTICA DE PRIVACIDAD — RECURRENTES\n\nEste sitio ofrece información general y canales de contacto. Si decides comunicarte por WhatsApp, la conversación será tratada también conforme a las políticas de esa plataforma. No ingreses datos financieros, contraseñas ni información sensible en el chat.\n\nAntes de recopilar o utilizar datos personales mediante formularios, campañas o procesos de contratación, el responsable deberá publicar una política completa de tratamiento de datos que identifique finalidades, derechos del titular y canales para consultas y reclamos.\n\nContacto para solicitudes: WhatsApp 304 555 2432 o 321 754 3838."
+      : "TÉRMINOS Y CONDICIONES — RECURRENTES\n\nLa información de este sitio es orientativa y no constituye por sí sola una oferta vinculante ni confirma una contratación. Cada servicio, su alcance, disponibilidad, precio, forma de pago, tiempos de entrega y condiciones deberán acordarse expresamente antes de contratar.\n\nLos enlaces de WhatsApp dirigen a una plataforma externa. Recurrentes no controla su disponibilidad ni sus condiciones de uso.\n\nAntes de habilitar pagos en línea, se deben publicar las condiciones específicas de los servicios ofrecidos, políticas de cancelación, retracto, devoluciones o reembolsos que correspondan y los datos de contacto para reclamaciones.";
+      alert(content);
+    }
+    window.openLegal=openLegal;
+  </script>
 </body>
 </html>
