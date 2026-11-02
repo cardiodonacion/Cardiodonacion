@@ -1,24 +1,25 @@
-RECURRENTES — SITIO WEB
+RECURRENTES — VERSION 2
 ========================
-
-CONTENIDO
-- index.html: sitio web completo (HTML, CSS y JavaScript integrados).
+Esta versión incorpora un portal editorial más dinámico:
+- Portada animada, ticker de actualidad y logo con efecto de luz.
+- Contadores animados basados en una publicación oficial de MinCultura.
+- Sección de noticias con filtros y buscador.
+- Enlaces a las fuentes originales de cada noticia.
+- Secciones de panorama, enfoque y contacto.
+- Chat automático con respuestas predefinidas y accesos a WhatsApp.
+- Diseño responsive para móvil y escritorio.
 
 PUBLICAR EN GITHUB PAGES
-1. Descomprime recurrentes_web.zip.
-2. En GitHub crea un repositorio público, por ejemplo: recurrentes.
-3. Sube index.html a la raíz del repositorio.
-4. Ve a Settings > Pages.
-5. En "Build and deployment", selecciona "Deploy from a branch".
-6. Selecciona la rama main y la carpeta /(root), guarda.
-7. GitHub mostrará la URL pública cuando termine la publicación.
+1. Descomprime el ZIP.
+2. Sube index.html a la raíz del repositorio GitHub.
+3. Abre Settings > Pages.
+4. En Build and deployment elige Deploy from a branch.
+5. Selecciona main y /(root), guarda.
+6. Espera a que GitHub muestre la dirección pública.
 
-PERSONALIZACIÓN PENDIENTE ANTES DE PRESENTAR A WOMPI
-- Completar la descripción exacta de los servicios realmente prestados.
-- Verificar que la actividad ofrecida coincida con el RUT y con la información declarada ante Wompi.
-- Publicar una política completa de tratamiento de datos personales y condiciones de contratación ajustadas al negocio.
-- Confirmar que dirección y teléfonos estén correctos.
-- Si se agrega correo electrónico, reemplazar el dato en la web por el correo real.
-
-IMPORTANTE
-El chat es un asistente automático local con respuestas predeterminadas. No utiliza IA, no guarda conversaciones y no transfiere mensajes a un operador. Los botones de WhatsApp abren conversaciones externas. La web no procesa pagos ni solicita datos de tarjetas.
+NOTAS IMPORTANTES
+- Las noticias son una selección de publicaciones externas y enlazan a sus fuentes; Recurrentes no se atribuye su autoría.
+- El chat es automático y local; no es IA ni conecta con un operador.
+- La página no procesa pagos ni tiene checkout.
+- Antes de presentar el sitio a Wompi, verifica que el contenido, servicios, actividad económica y datos comerciales correspondan a tu operación real. Completa las políticas legales y de contratación que apliquen. No se garantiza aprobación por parte de Wompi.
+- La sección de servicios está redactada de forma general para no inventar productos o prestaciones no confirmados.

@@ -1,166 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Recurrentes: atención personalizada y canales directos para solicitar información y contratar servicios.">
-  <meta name="theme-color" content="#101827">
-  <title>Recurrentes | Atención y servicios</title>
-  <style>
-    :root{--bg:#0b1220;--panel:#111c2e;--panel2:#16243a;--ink:#f4f7fb;--muted:#aab7ca;--line:rgba(255,255,255,.12);--cyan:#53d6d0;--blue:#6997ff;--gold:#f0c879}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-    a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}
-    .topline{height:4px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--gold))}
-    header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.13em}.mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#071321;font-weight:950;font-size:19px;box-shadow:0 8px 28px #53d6d033}
-    .navlinks{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--cyan)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:12px;border:1px solid transparent;font-weight:750;transition:.2s transform,.2s box-shadow,.2s background}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0005}
-    .primary{background:linear-gradient(110deg,var(--cyan),#8ce4d7);color:#071321}.secondary{border-color:var(--line);background:#ffffff0a;color:var(--ink)}.wa{background:#1fbd72;color:#062016}.small{padding:10px 14px;font-size:13px}
-    .hero{position:relative;overflow:hidden;padding:94px 0 82px;background:radial-gradient(ellipse at 80% 15%,#426fc533,transparent 34%),radial-gradient(ellipse at 12% 80%,#53d6d01c,transparent 35%)}
-    .hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff12;border-radius:50%;right:-110px;bottom:-210px;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff05}
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;position:relative;z-index:1}
-    .eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
-    h1{font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:-.055em;margin:20px 0}.gradient{background:linear-gradient(90deg,#fff,var(--cyan) 65%,#9db9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .lead{max-width:600px;color:var(--muted);font-size:18px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-    .hero-card{background:linear-gradient(145deg,#192943,#101a2b);border:1px solid var(--line);border-radius:25px;padding:28px;box-shadow:0 30px 80px #0006;transform:rotate(1deg)}
-    .orbit{width:100%;aspect-ratio:1.15;display:grid;place-items:center;position:relative;border-radius:18px;background:radial-gradient(circle at center,#53d6d022,transparent 48%),linear-gradient(135deg,#ffffff08,#ffffff02);overflow:hidden}
-    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #53d6d044;border-radius:50%;width:220px;height:220px}.orbit:after{width:290px;height:290px;border-color:#6997ff33}
-    .core{z-index:1;width:118px;height:118px;border-radius:32px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#071321;font-size:38px;font-weight:950;box-shadow:0 0 55px #53d6d044}
-    .float{position:absolute;z-index:2;padding:9px 12px;background:#17263b;border:1px solid var(--line);border-radius:11px;font-size:12px;color:#dce8f8;box-shadow:0 10px 25px #0005}.f1{top:17%;left:9%}.f2{right:7%;top:27%}.f3{bottom:15%;left:24%}
-    .card-foot{display:flex;justify-content:space-between;gap:15px;margin-top:20px;color:var(--muted);font-size:12px}.card-foot strong{color:var(--ink);display:block;font-size:15px}
-    section{padding:78px 0}.section-head{max-width:700px;margin-bottom:34px}.kicker{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacing:-.035em;margin:12px 0}.section-head p{color:var(--muted);margin:0}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.feature{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px;transition:.25s}.feature:hover{transform:translateY(-5px);border-color:#53d6d066;background:var(--panel2)}
-    .ico{width:45px;height:45px;border-radius:13px;display:grid;place-items:center;background:#53d6d018;color:var(--cyan);font-size:21px;margin-bottom:18px}.feature h3{margin:0 0 8px;font-size:18px}.feature p{color:var(--muted);font-size:14px;margin:0}
-    .contact-band{background:linear-gradient(120deg,#162a3c,#17243d);border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:25px}.contact-band h2{margin:0 0 7px;font-size:clamp(25px,3vw,36px)}.contact-band p{margin:0;color:var(--muted)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.contact-card h3{margin:0 0 8px}.contact-card p{color:var(--muted);margin:0 0 15px;font-size:14px}
-    .phone{font-size:19px;font-weight:800;letter-spacing:.02em;margin:5px 0 14px}.address{color:#dce8f8}
-    footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.legal{display:flex;gap:18px;flex-wrap:wrap}.legal a:hover{color:var(--cyan)}
-    .notice{font-size:12px;color:#8393aa;margin-top:20px}
-    /* Chat */
-    .chat-launch{position:fixed;right:22px;bottom:22px;z-index:40;border:0;border-radius:999px;background:linear-gradient(120deg,var(--cyan),#8ce4d7);color:#071321;padding:14px 18px;font-weight:850;box-shadow:0 12px 35px #0008;display:flex;gap:9px;align-items:center}
-    .chat{position:fixed;right:22px;bottom:86px;width:min(360px,calc(100vw - 30px));height:490px;max-height:70vh;background:#101c2d;border:1px solid #ffffff25;border-radius:20px;z-index:40;box-shadow:0 25px 70px #000b;display:none;overflow:hidden;flex-direction:column}.chat.open{display:flex}
-    .chat-head{padding:16px;background:linear-gradient(110deg,#1d4250,#20365a);display:flex;justify-content:space-between;align-items:center}.chat-head strong{display:block}.chat-head small{color:#c4d5e5}.close{border:0;background:#ffffff18;color:white;border-radius:8px;padding:6px 10px}
-    .messages{padding:15px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}.msg{padding:10px 12px;border-radius:13px;max-width:88%;font-size:13px;white-space:pre-wrap}.bot{background:#1d2b40;color:#eaf2fc;align-self:flex-start;border-bottom-left-radius:4px}.user{background:#3caaa5;color:#041a1b;align-self:flex-end;border-bottom-right-radius:4px}
-    .quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}.quick button{border:1px solid #53d6d066;background:#152a3a;color:#b9f2e9;border-radius:20px;padding:7px 10px;font-size:11px}
-    .chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chat-input input{min-width:0;flex:1;background:#0b1524;border:1px solid var(--line);border-radius:10px;padding:11px;color:white;outline:none}.chat-input button{border:0;border-radius:10px;background:var(--cyan);color:#06191a;padding:0 13px;font-weight:800}
-    @media(max-width:800px){.navlinks{display:none}.hero{padding:68px 0}.hero-grid{grid-template-columns:1fr;gap:35px}.hero-card{max-width:520px}.grid3{grid-template-columns:1fr}.contact-band{align-items:flex-start;flex-direction:column}.contact-grid{grid-template-columns:1fr}section{padding:60px 0}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08111f">
+<meta name="description" content="Recurrentes: actualidad, ideas y tendencias del ecosistema creativo, audiovisual y digital en Colombia.">
+<title>RECURRENTES | Ideas que se mueven</title>
+<style>
+:root{--bg:#08111f;--bg2:#0d1a2c;--card:#102039;--ink:#f5f8ff;--muted:#9eacc1;--line:#ffffff19;--a:#65e1d1;--b:#83a7ff;--gold:#f3c878;--pink:#f08ab2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.progress{height:3px;position:fixed;top:0;left:0;width:0;background:linear-gradient(90deg,var(--a),var(--b),var(--pink));z-index:100}
+.wrap{width:min(1180px,92%);margin:auto}.muted{color:var(--muted)}
+header{position:sticky;top:0;z-index:50;background:#08111fdb;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:950;letter-spacing:.18em;font-size:14px}.logo{height:42px;width:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--a),var(--b));color:#07121e;font-size:21px;font-weight:1000;box-shadow:0 0 35px #65e1d144;position:relative;overflow:hidden}.logo:after{content:"";position:absolute;inset:-30%;background:linear-gradient(110deg,transparent 35%,#ffffffaa 50%,transparent 65%);transform:translateX(-100%);animation:shine 4s infinite}
+@keyframes shine{60%,100%{transform:translateX(100%)}}.nav{display:flex;gap:25px;color:#b4c0d2;font-size:13px;font-weight:650}.nav a:hover{color:var(--a)}.navcta,.btn{border:0;border-radius:999px;padding:11px 17px;background:var(--a);color:#07151b;font-size:13px;font-weight:850;display:inline-flex;align-items:center;gap:8px;transition:.2s;cursor:pointer}.navcta:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #65e1d133}.btn.ghost{background:#ffffff0b;color:var(--ink);border:1px solid var(--line)}.btn.blue{background:var(--b);color:#081323}
+.ticker{border-bottom:1px solid var(--line);background:#0c192a;overflow:hidden;white-space:nowrap}.ticker-track{display:inline-flex;gap:40px;padding:10px 0;animation:ticker 34s linear infinite;color:#bdc9d9;font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}.ticker b{color:var(--a)}@keyframes ticker{to{transform:translateX(-50%)}}
+.hero{min-height:610px;display:grid;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 76% 35%,#385cae38,transparent 35%),radial-gradient(ellipse at 14% 80%,#65e1d11c,transparent 35%),linear-gradient(120deg,#08111f,#0c192b 60%,#0a1423)}
+.hero:before{content:"";position:absolute;width:620px;height:620px;border:1px solid #65e1d126;border-radius:50%;right:-130px;top:5%;box-shadow:0 0 0 55px #65e1d00a,0 0 0 110px #65e1d008;animation:rotate 45s linear infinite}.hero:after{content:"";position:absolute;width:350px;height:350px;border:1px dashed #83a7ff45;border-radius:50%;right:8%;top:25%;animation:rotate 30s linear infinite reverse}@keyframes rotate{to{transform:rotate(360deg)}}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;padding:80px 0}.tag{color:var(--a);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:9px}.pulse{height:8px;width:8px;border-radius:50%;background:var(--a);box-shadow:0 0 0 0 #65e1d188;animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 10px #65e1d100}}
+h1{font-size:clamp(45px,7vw,82px);line-height:.98;letter-spacing:-.065em;margin:23px 0}.grad{background:linear-gradient(95deg,#fff 10%,var(--a) 55%,#a9bfff 90%);color:transparent;background-clip:text}.hero p{max-width:620px;color:#aebbd0;font-size:17px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-panel{position:relative;border:1px solid var(--line);border-radius:28px;padding:17px;background:linear-gradient(145deg,#ffffff12,#ffffff03);box-shadow:0 30px 100px #0007;transform:rotate(1deg)}.visual{height:330px;border-radius:19px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a3b56,#18294d 55%,#38284f)}.visual:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 38px,#ffffff0b 39px),repeating-linear-gradient(90deg,transparent 0 38px,#ffffff0b 39px)}.orb{position:absolute;width:210px;height:210px;border-radius:50%;top:48px;left:calc(50% - 105px);background:radial-gradient(circle at 35% 30%,#b5fff0,#59c5ce 30%,#5174c6 65%,#27365e);filter:drop-shadow(0 0 55px #65e1d177);animation:float 6s ease-in-out infinite}.orb:after{content:"";position:absolute;inset:-28px;border:1px solid #b2fff055;border-radius:50%;transform:scaleX(1.4) rotate(-25deg)}@keyframes float{50%{transform:translateY(-16px) scale(1.03)}}.visual-label{position:absolute;bottom:20px;left:22px;font-size:11px;letter-spacing:.15em;color:#d3e7fa;text-transform:uppercase}.visual-stat{position:absolute;right:20px;top:20px;background:#08111fbb;border:1px solid #ffffff22;padding:10px 13px;border-radius:12px;font-size:11px;color:#dceaff}.visual-stat strong{display:block;color:var(--a);font-size:20px}.panel-foot{display:flex;justify-content:space-between;padding:15px 4px 2px;color:var(--muted);font-size:11px}.panel-foot strong{color:white}
+.section{padding:82px 0}.section.alt{background:#0b1727;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}.eyebrow{color:var(--a);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.section h2{font-size:clamp(30px,4vw,47px);letter-spacing:-.045em;line-height:1.05;margin:10px 0}.section-top p{max-width:520px;color:var(--muted);margin:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:35px}.stat{padding:22px;border:1px solid var(--line);border-radius:17px;background:#ffffff08}.stat strong{display:block;font-size:clamp(25px,4vw,38px);letter-spacing:-.04em;color:var(--a)}.stat span{color:var(--muted);font-size:12px}
+.news-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:22px 0 28px}.filter{background:#ffffff08;color:#c4d0e1;border:1px solid var(--line);border-radius:30px;padding:8px 14px;font-size:12px;cursor:pointer}.filter.active,.filter:hover{background:var(--a);color:#08151c;border-color:var(--a)}.search{margin-left:auto;background:#ffffff08;border:1px solid var(--line);border-radius:30px;padding:9px 15px;color:white;min-width:210px;outline:none}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.news{background:linear-gradient(145deg,#14243a,#0e1b2d);border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:.25s;display:flex;flex-direction:column;min-height:360px}.news:hover{transform:translateY(-7px);border-color:#65e1d077;box-shadow:0 18px 45px #0005}.news-art{height:155px;position:relative;overflow:hidden;background:linear-gradient(135deg,#17475a,#344a86)}.news-art:before{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff55;border-radius:50%;top:-70px;right:-20px;box-shadow:0 0 0 24px #ffffff0a,0 0 0 50px #ffffff08}.news-art:after{content:attr(data-symbol);position:absolute;left:22px;bottom:7px;font-size:75px;font-weight:900;color:#ffffff33;letter-spacing:-.1em}.art2{background:linear-gradient(135deg,#4a2d64,#1d526a)}.art3{background:linear-gradient(135deg,#1d3c68,#2d8a89)}.art4{background:linear-gradient(135deg,#5b3b29,#9b6b44)}.art5{background:linear-gradient(135deg,#23345b,#69518d)}.art6{background:linear-gradient(135deg,#174b50,#29416d)}
+.news-body{padding:20px;display:flex;flex-direction:column;flex:1}.news-meta{font-size:10px;color:var(--a);font-weight:850;letter-spacing:.13em;text-transform:uppercase}.news h3{font-size:18px;line-height:1.25;margin:10px 0}.news p{font-size:13px;color:var(--muted);margin:0 0 18px}.read{margin-top:auto;color:#d7e6ff;font-size:12px;font-weight:850;display:inline-flex;align-items:center;gap:8px}.read:hover{color:var(--a)}
+.empty{display:none;padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.feature-box{border:1px solid var(--line);border-radius:20px;padding:28px;background:linear-gradient(145deg,#13243a,#0d1929)}.feature-box h3{font-size:22px;margin:8px 0}.feature-box p{color:var(--muted);font-size:14px}.bullets{display:grid;gap:12px;margin-top:20px}.bullet{display:flex;gap:12px;color:#d8e2f0;font-size:13px}.bullet i{font-style:normal;color:var(--a)}
+.cta{padding:35px;border-radius:24px;background:linear-gradient(115deg,#1b4752,#273b70 65%,#46375f);display:flex;justify-content:space-between;align-items:center;gap:25px;position:relative;overflow:hidden}.cta:after{content:"R";position:absolute;right:22%;top:-65px;font-size:230px;font-weight:1000;color:#ffffff0a}.cta h2{font-size:clamp(25px,4vw,39px);margin:0;position:relative;z-index:1}.cta p{color:#d1dfef;margin:8px 0 0;position:relative;z-index:1}.cta a{position:relative;z-index:1;white-space:nowrap}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{color:white;letter-spacing:.17em}
+.chat-launch{position:fixed;bottom:22px;right:22px;z-index:70;border:0;border-radius:50px;padding:14px 18px;background:var(--a);color:#06171c;font-weight:900;box-shadow:0 12px 40px #0008;cursor:pointer}.chat{position:fixed;z-index:70;right:20px;bottom:82px;width:min(365px,calc(100vw - 30px));height:480px;max-height:72vh;background:#0d1b2d;border:1px solid #ffffff28;border-radius:20px;box-shadow:0 25px 90px #000b;display:none;flex-direction:column;overflow:hidden}.chat.open{display:flex}.chat-head{background:linear-gradient(110deg,#1b5155,#293e72);padding:15px;display:flex;justify-content:space-between;align-items:center}.chat-head small{display:block;color:#c6d9e8}.chat-head button{background:#ffffff1a;color:white;border:0;border-radius:8px;padding:6px 10px}.msgs{padding:14px;display:flex;flex-direction:column;gap:9px;overflow:auto;flex:1}.msg{max-width:89%;padding:10px 12px;border-radius:13px;font-size:12px;white-space:pre-wrap}.bot{background:#1b2b41;color:#eaf3ff;align-self:flex-start}.user{background:#64d6c7;color:#071a1d;align-self:flex-end}.quick{display:flex;gap:6px;flex-wrap:wrap}.quick button{background:#102a38;color:#9ef0e2;border:1px solid #65e1d166;border-radius:30px;padding:7px 10px;font-size:11px}.chat-form{display:flex;padding:10px;gap:8px;border-top:1px solid var(--line)}.chat-form input{min-width:0;flex:1;border:1px solid var(--line);background:#081321;color:white;border-radius:10px;padding:10px;outline:none}.chat-form button{border:0;background:var(--a);border-radius:10px;padding:0 13px;font-weight:900}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){.nav{display:none}.hero-grid{grid-template-columns:1fr;padding:65px 0}.hero-panel{max-width:550px}.news-grid{grid-template-columns:repeat(2,1fr)}.section-top{display:block}.section-top p{margin-top:10px}.cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.news-grid,.stats,.feature-row{grid-template-columns:1fr}.hero{min-height:0}.visual{height:270px}.search{margin-left:0;width:100%}.news{min-height:320px}.section{padding:62px 0}.cta{padding:26px}.chat-launch{right:14px;bottom:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <div class="topline"></div>
-  <header>
-    <div class="wrap">
-      <nav>
-        <a class="brand" href="#inicio" aria-label="Recurrentes, inicio"><span class="mark">R.</span><span>RECURRENTES</span></a>
-        <div class="navlinks"><a href="#nosotros">Nosotros</a><a href="#atencion">Atención</a><a href="#contacto">Contacto</a></div>
-        <a class="btn primary small" href="#contacto">Solicitar atención <span>↗</span></a>
-      </nav>
-    </div>
-  </header>
+<div class="progress" id="progress"></div>
+<header><div class="wrap"><nav>
+<a class="brand" href="#inicio"><span class="logo">R.</span><span>RECURRENTES</span></a>
+<div class="nav"><a href="#actualidad">Actualidad</a><a href="#panorama">Panorama</a><a href="#enfoque">Nuestro enfoque</a><a href="#contacto">Contacto</a></div>
+<a class="navcta" href="#actualidad">Explorar novedades ↗</a>
+</nav></div></header>
+<div class="ticker"><div class="ticker-track">
+<span><b>● EN MOVIMIENTO</b> Ideas · Cultura · Tecnología · Contenido digital</span><span>ACTUALIDAD COLOMBIANA <b>◆</b> Tendencias que transforman industrias</span><span>RECURRENTES <b>◆</b> Información para estar al día</span>
+<span><b>● EN MOVIMIENTO</b> Ideas · Cultura · Tecnología · Contenido digital</span><span>ACTUALIDAD COLOMBIANA <b>◆</b> Tendencias que transforman industrias</span><span>RECURRENTES <b>◆</b> Información para estar al día</span>
+</div></div>
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid">
+<div class="reveal"><div class="tag"><span class="pulse"></span> Ideas que se mueven · Colombia</div>
+<h1>El presente cambia.<br><span class="grad">Mantente en movimiento.</span></h1>
+<p>Un espacio para descubrir noticias, tendencias y conversaciones del ecosistema creativo, audiovisual y digital. Información, perspectivas y conexiones para mirar lo que viene.</p>
+<div class="hero-actions"><a class="btn" href="#actualidad">Descubrir actualidad ↓</a><a class="btn ghost" href="#contacto">Hablar con Recurrentes ↗</a></div>
+<div class="stats">
+<div class="stat"><strong data-count="47.8" data-suffix=" B">0</strong><span>Valor agregado de la economía cultural y creativa en Colombia, 2025</span></div>
+<div class="stat"><strong data-count="820" data-suffix=" mil+">0</strong><span>Empleos equivalentes a tiempo completo en el sector, 2025</span></div>
+<div class="stat"><strong data-count="2.89" data-suffix="%">0</strong><span>Participación en la economía nacional, 2025</span></div>
+</div></div>
+<div class="hero-panel reveal"><div class="visual"><div class="orb"></div><div class="visual-stat">ECOSISTEMA CREATIVO<strong>2026</strong></div><div class="visual-label">Ideas · Historias · Tecnología</div></div><div class="panel-foot"><span><strong>RECURRENTES / ACTUALIDAD</strong>Una mirada al entorno digital</span><span>BOGOTÁ · COLOMBIA</span></div></div>
+</div></section>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> Atención cercana · Comunicación directa</div>
-          <h1>Conectamos tus ideas con <span class="gradient">la atención que necesitas.</span></h1>
-          <p class="lead">En Recurrentes queremos escucharte. Cuéntanos qué servicio estás buscando y nuestro equipo te orientará sobre los siguientes pasos, disponibilidad y opciones de atención.</p>
-          <div class="actions">
-            <a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">☏ WhatsApp principal</a>
-            <a class="btn secondary" target="_blank" rel="noopener" href="https://wa.me/573217543838?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Contactar segunda línea ↗</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="orbit">
-            <span class="float f1">Atención personalizada</span><span class="float f2">Canales directos</span><span class="float f3">Estamos para orientarte</span>
-            <div class="core">R.</div>
-          </div>
-          <div class="card-foot"><div><strong>RECURRENTES</strong>Un primer contacto sencillo</div><div style="text-align:right">Bogotá D.C.<strong>Colombia</strong></div></div>
-        </div>
-      </div>
-    </section>
+<section class="section" id="actualidad"><div class="wrap">
+<div class="section-top reveal"><div><div class="eyebrow">Lo que está pasando</div><h2>Actualidad que vale la pena leer.</h2></div><p>Noticias y desarrollos recientes sobre industrias creativas, producción audiovisual y transformación digital en Colombia. Cada nota enlaza a su publicación original.</p></div>
+<div class="news-tools reveal">
+<button class="filter active" data-filter="all">Todo</button><button class="filter" data-filter="creativo">Economía creativa</button><button class="filter" data-filter="audiovisual">Audiovisual</button><button class="filter" data-filter="tecnologia">Tecnología</button>
+<input class="search" id="search" type="search" placeholder="Buscar noticias..." aria-label="Buscar noticias">
+</div>
+<div class="news-grid" id="newsGrid">
+<article class="news reveal" data-cat="creativo" data-title="La economía cultural y creativa alcanzó 47,8 billones de pesos y generó más de 820 mil empleos en Colombia"><div class="news-art" data-symbol="47B"></div><div class="news-body"><div class="news-meta">Economía creativa · 30 jul 2026</div><h3>La economía cultural y creativa alcanzó $47,8 billones en Colombia</h3><p>El sector representó el 2,89 % del valor agregado nacional y registró más de 820 mil empleos equivalentes a tiempo completo durante 2025.</p><a class="read" href="https://www.mincultura.gov.co/noticias/Paginas/la-economia-cultural-y-creativa-alcanzo-478-billones-en-2025-y-genero-mas-de-820000-empleos-en-colombia.aspx" target="_blank" rel="noopener">Leer publicación original ↗</a></div></article>
+<article class="news reveal" data-cat="audiovisual" data-title="Cien años de soledad contribuyó con más de 525 mil millones de pesos a la economía colombiana"><div class="news-art art2" data-symbol="CINE"></div><div class="news-body"><div class="news-meta">Audiovisual · 05 oct 2026</div><h3>El impacto económico de Cien años de soledad en Colombia</h3><p>Netflix reportó una contribución superior a $525 mil millones a la economía del país entre las dos partes de la producción.</p><a class="read" href="https://about.netflix.com/es/news/one-hundred-years-of-solitude-contributed-525-billion-cop-to-colombia-economy" target="_blank" rel="noopener">Leer publicación original ↗</a></div></article>
+<article class="news reveal" data-cat="tecnologia" data-title="Colombia va por el milagro tecnológico MinTIC hoja de ruta 2026 2030"><div class="news-art art3" data-symbol="TIC"></div><div class="news-body"><div class="news-meta">Tecnología · 02 sep 2026</div><h3>Colombia plantea una nueva ruta para impulsar la productividad digital</h3><p>MinTIC presentó una hoja de ruta que busca fortalecer innovación, capacidades, empleo y competitividad a través de las TIC.</p><a class="read" href="https://www.mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/440507%3AColombia-va-por-el-Milagro-Tecnologico-MinTIC-invito-al-Sector-TIC-a-definir-la-ruta-que-potencialice-la-productividad-del-pais-gracias-a-la-tecnologia" target="_blank" rel="noopener">Leer publicación original ↗</a></div></article>
+<article class="news reveal" data-cat="tecnologia" data-title="Dos de cada tres empresas de software en Colombia ya usan inteligencia artificial"><div class="news-art art4" data-symbol="IA"></div><div class="news-body"><div class="news-meta">Tendencias · 08 oct 2026</div><h3>La inteligencia artificial gana espacio en empresas colombianas de software</h3><p>Un sondeo de Fedesoft y Cenisoft reportó que dos de cada tres compañías consultadas ya tienen soluciones de IA en operación.</p><a class="read" href="https://www.oom.elcolombiano.com/tecnologia/empresas-software-colombia-agentes-ia-fedesoft-2026-HO42080412" target="_blank" rel="noopener">Leer publicación original ↗</a></div></article>
+<article class="news reveal" data-cat="audiovisual" data-title="Colombia presente en Iberseries Platino Industria y Gamescom 2026"><div class="news-art art5" data-symbol="FILM"></div><div class="news-body"><div class="news-meta">Audiovisual · oct 2026</div><h3>Colombia amplía su presencia en escenarios internacionales de industria</h3><p>La Comisión Fílmica Colombia destaca novedades, participación en mercados y espacios de conexión para el sector audiovisual.</p><a class="read" href="https://comisionfilmicacolombia.com/noticias/" target="_blank" rel="noopener">Consultar noticias de la Comisión Fílmica ↗</a></div></article>
+<article class="news reveal" data-cat="creativo" data-title="Crea Digital 2026 impulsa proyectos de animación videojuegos y narrativas transmedia"><div class="news-art art6" data-symbol="CREA"></div><div class="news-body"><div class="news-meta">Economía creativa · 25 ago 2026</div><h3>Crea Digital proyecta el futuro de la industria creativa</h3><p>Iniciativas de animación, videojuegos, narrativas transmedia y contenidos digitales reciben acompañamiento especializado.</p><a class="read" href="https://mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/440412%3ATutores-de-Crea-Digital-2026-proyectan-el-presente-y-futuro-de-la-industria-creativa-digital" target="_blank" rel="noopener">Leer publicación original ↗</a></div></article>
+</div><div class="empty" id="empty">No encontramos noticias con esa búsqueda. Prueba otra palabra.</div>
+<p class="muted" style="font-size:11px;margin-top:18px">Selección editorial de fuentes externas. Las noticias pertenecen a sus respectivos medios y entidades; Recurrentes no es el autor de esas publicaciones. Fechas y contenidos corresponden a las fuentes enlazadas.</p>
+</div></section>
 
-    <section id="nosotros">
-      <div class="wrap">
-        <div class="section-head"><div class="kicker">Una atención clara</div><h2>Tu solicitud empieza con una conversación.</h2><p>Queremos que encuentres un canal sencillo para resolver tus inquietudes y conocer las condiciones de cada servicio antes de contratar.</p></div>
-        <div class="grid3">
-          <article class="feature"><div class="ico">✦</div><h3>Orientación inicial</h3><p>Cuéntanos qué necesitas. Te indicaremos cómo continuar y qué información hace falta para atender tu solicitud.</p></article>
-          <article class="feature"><div class="ico">◉</div><h3>Contacto directo</h3><p>Comunícate por cualquiera de nuestras líneas de WhatsApp para recibir orientación personalizada.</p></article>
-          <article class="feature"><div class="ico">✓</div><h3>Información transparente</h3><p>Antes de contratar, podrás consultar alcance, disponibilidad, tiempos y condiciones del servicio solicitado.</p></article>
-        </div>
-      </div>
-    </section>
+<section class="section alt" id="panorama"><div class="wrap"><div class="section-top reveal"><div><div class="eyebrow">Panorama</div><h2>Un entorno que no se detiene.</h2></div><p>La creación de contenidos, la tecnología y las nuevas formas de comunicación están transformando la manera en que las personas y las organizaciones se conectan.</p></div>
+<div class="feature-row">
+<div class="feature-box reveal"><div class="eyebrow">01 / Creatividad</div><h3>Las ideas también mueven la economía.</h3><p>La economía cultural y creativa integra actividades que convierten talento, conocimiento y expresiones culturales en valor económico y social.</p><div class="bullets"><div class="bullet"><i>✦</i> Nuevas narrativas y formatos digitales</div><div class="bullet"><i>✦</i> Producción y circulación de contenidos</div><div class="bullet"><i>✦</i> Conexión entre talento y oportunidades</div></div></div>
+<div class="feature-box reveal"><div class="eyebrow">02 / Transformación</div><h3>La tecnología cambia la conversación.</h3><p>La automatización y la inteligencia artificial están pasando de la experimentación a usos prácticos en distintos sectores.</p><div class="bullets"><div class="bullet"><i>✦</i> Herramientas digitales y nuevos procesos</div><div class="bullet"><i>✦</i> Atención y experiencias conectadas</div><div class="bullet"><i>✦</i> Innovación con criterio y responsabilidad</div></div></div>
+</div></div></section>
 
-    <section id="atencion">
-      <div class="wrap">
-        <div class="contact-band">
-          <div><div class="kicker">¿Tienes una solicitud?</div><h2>Hablemos de lo que necesitas.</h2><p>Elige una línea y envíanos tu mensaje predeterminado.</p></div>
-          <a class="btn primary" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio." target="_blank" rel="noopener">Iniciar conversación ↗</a>
-        </div>
-      </div>
-    </section>
+<section class="section" id="enfoque"><div class="wrap"><div class="section-top reveal"><div><div class="eyebrow">El enfoque Recurrentes</div><h2>Información clara. Conversaciones útiles.</h2></div><p>Recurrentes reúne contenido de interés y habilita canales de contacto para atender consultas. La información de cada servicio se confirma directamente antes de cualquier contratación.</p></div>
+<div class="grid3">
+<div class="feature-box reveal"><div class="eyebrow">Explorar</div><h3>Descubre novedades</h3><p>Consulta artículos, iniciativas y tendencias publicadas por fuentes externas reconocidas.</p></div>
+<div class="feature-box reveal"><div class="eyebrow">Conectar</div><h3>Abre una conversación</h3><p>Envía tu solicitud a través de los canales directos de atención disponibles.</p></div>
+<div class="feature-box reveal"><div class="eyebrow">Consultar</div><h3>Resuelve tus dudas</h3><p>El asistente virtual ofrece orientación básica y te dirige a una línea de atención.</p></div>
+</div></div></section>
 
-    <section id="contacto">
-      <div class="wrap">
-        <div class="section-head"><div class="kicker">Canales de atención</div><h2>Estamos a un mensaje de distancia.</h2><p>Selecciona el medio que prefieras. Al pulsar WhatsApp se abrirá una conversación con el mensaje inicial listo para enviar.</p></div>
-        <div class="contact-grid">
-          <article class="contact-card"><h3>WhatsApp · Línea 1</h3><div class="phone">304 555 2432</div><p>Para consultas, información y solicitudes de servicio.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Abrir WhatsApp ↗</a></article>
-          <article class="contact-card"><h3>WhatsApp · Línea 2</h3><div class="phone">321 754 3838</div><p>Línea alternativa para recibir orientación y seguimiento.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/573217543838?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Abrir WhatsApp ↗</a></article>
-          <article class="contact-card"><h3>Responsable de atención</h3><div class="phone">Kevin Bertel</div><p>Contacto para solicitudes y orientación comercial.</p><span class="address">Atención mediante las líneas de WhatsApp.</span></article>
-          <article class="contact-card"><h3>Dirección</h3><div class="phone">Bogotá D.C.</div><p class="address">Calle 12A # 71B - 61</p><span class="address">Colombia</span></article>
-        </div>
-        <p class="notice">Los canales de WhatsApp son enlaces externos. La disponibilidad y los tiempos de respuesta pueden variar. La contratación solo se entiende confirmada cuando se acuerden expresamente el servicio, su alcance, precio y condiciones.</p>
-      </div>
-    </section>
-  </main>
+<section class="section alt" id="contacto"><div class="wrap"><div class="cta reveal"><div><div class="eyebrow">Contacto directo</div><h2>¿Hablamos?</h2><p>Cuéntanos qué necesitas y solicita una llamada o un mensaje por correo.</p></div><a class="btn" target="_blank" rel="noopener" href="https://wa.me/573045552432?text=Hola%2C%20me%20gustar%C3%ADa%20una%20llamada%20o%20un%20mensaje%20por%20correo%20para%20tomar%20un%20servicio.">Contactar a Recurrentes ↗</a></div>
+<div class="stats" style="margin-top:20px">
+<div class="stat"><strong style="font-size:18px;color:#fff">Kevin Bertel</strong><span>Responsable de contacto</span></div>
+<div class="stat"><strong style="font-size:18px;color:#fff">304 555 2432</strong><span>WhatsApp principal · <a href="https://wa.me/573045552432" target="_blank" rel="noopener">Abrir chat ↗</a></span></div>
+<div class="stat"><strong style="font-size:18px;color:#fff">321 754 3838</strong><span>WhatsApp alternativo · <a href="https://wa.me/573217543838" target="_blank" rel="noopener">Abrir chat ↗</a></span></div>
+</div><p class="muted" style="font-size:12px;margin-top:18px">Dirección de contacto: Calle 12A # 71B - 61, Bogotá D.C., Colombia.</p>
+</div></section>
+</main>
+<footer><div class="wrap foot"><div><strong>RECURRENTES</strong><div>© <span id="year"></span> Recurrentes. Todos los derechos reservados.</div></div><div>Actualidad · Creatividad · Tecnología · Colombia</div></div></footer>
 
-  <footer>
-    <div class="wrap foot"><div><strong style="color:#fff;letter-spacing:.13em">RECURRENTES</strong><div>© <span id="year"></span> Recurrentes. Todos los derechos reservados.</div></div><div class="legal"><a href="#privacidad" onclick="openLegal('privacy')">Privacidad</a><a href="#condiciones" onclick="openLegal('terms')">Términos y condiciones</a></div></div>
-  </footer>
-
-  <div id="privacy" hidden></div><div id="terms" hidden></div>
-  <button class="chat-launch" id="chatLaunch" aria-label="Abrir asistente virtual">✧ Chat en línea</button>
-  <div class="chat" id="chat" role="dialog" aria-label="Asistente virtual de Recurrentes">
-    <div class="chat-head"><div><strong>Asistente Recurrentes</strong><small>Orientación automática · Respuestas básicas</small></div><button class="close" id="chatClose" aria-label="Cerrar chat">✕</button></div>
-    <div class="messages" id="messages">
-      <div class="msg bot">¡Hola! 👋 Soy el asistente virtual de Recurrentes. Puedo orientarte con información básica. ¿Qué te gustaría consultar?</div>
-      <div class="quick">
-        <button data-q="servicios">Quiero conocer los servicios</button><button data-q="contacto">Líneas de atención</button><button data-q="horario">Horarios</button><button data-q="contratar">Quiero contratar</button>
-      </div>
-    </div>
-    <form class="chat-input" id="chatForm"><input id="chatText" placeholder="Escribe tu consulta..." autocomplete="off" aria-label="Escribe tu consulta"><button type="submit">Enviar</button></form>
-  </div>
-
-  <script>
-    const msgText = "Hola, me gustaría una llamada o un mensaje por correo para tomar un servicio.";
-    const wa1 = "https://wa.me/573045552432?text=" + encodeURIComponent(msgText);
-    const wa2 = "https://wa.me/573217543838?text=" + encodeURIComponent(msgText);
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const chat = document.getElementById('chat'), messages = document.getElementById('messages');
-    document.getElementById('chatLaunch').addEventListener('click',()=>chat.classList.toggle('open'));
-    document.getElementById('chatClose').addEventListener('click',()=>chat.classList.remove('open'));
-    function addMessage(text,kind='bot'){const el=document.createElement('div');el.className='msg '+kind;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;}
-    function reply(input){
-      const q=input.toLowerCase();
-      if(/servicio|ofrecen|hacen|catálogo/.test(q)) return "Con gusto te orientamos. Cuéntanos qué servicio necesitas para indicarte si podemos atender tu solicitud. Para conocer el alcance, disponibilidad y precio, comunícate con nuestro equipo por WhatsApp.";
-      if(/contacto|whatsapp|teléfono|linea|línea|llamar/.test(q)) return "Puedes comunicarte con nuestras líneas de atención:\n• 304 555 2432\n• 321 754 3838\n\nSelecciona una línea para continuar por WhatsApp.";
-      if(/horario|abierto|atienden/.test(q)) return "La atención se coordina directamente por WhatsApp. Escríbenos para confirmar disponibilidad y horario de respuesta.";
-      if(/contratar|tomar|precio|costo|valor|pagar/.test(q)) return "¡Claro! Para iniciar una solicitud, escríbenos por WhatsApp. El equipo confirmará el servicio, alcance, precio y condiciones antes de cualquier contratación.";
-      if(/correo|email/.test(q)) return "Por ahora, los canales de contacto publicados son WhatsApp. Puedes solicitar que el equipo te contacte por correo al iniciar la conversación.";
-      return "Gracias por escribirnos. Para darte una respuesta precisa, nuestro equipo puede orientarte directamente. Te sugiero comunicarte por cualquiera de estas líneas: 304 555 2432 o 321 754 3838.";
-    }
-    function quickReply(q){addMessage(q,'user');addMessage(reply(q));addQuickLinks();}
-    function addQuickLinks(){const box=document.createElement('div');box.className='quick';[['WhatsApp 1',wa1],['WhatsApp 2',wa2]].forEach(([label,url])=>{const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;a.style.cssText='border:1px solid #53d6d066;background:#152a3a;color:#b9f2e9;border-radius:20px;padding:7px 10px;font-size:11px';box.appendChild(a)});messages.appendChild(box);messages.scrollTop=messages.scrollHeight;}
-    document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>quickReply(({servicios:'Quiero conocer los servicios',contacto:'¿Cuáles son las líneas de atención?',horario:'¿Cuál es el horario de atención?',contratar:'Quiero contratar un servicio'})[b.dataset.q])));
-    document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('chatText');const value=input.value.trim();if(!value)return;addMessage(value,'user');addMessage(reply(value));addQuickLinks();input.value='';});
-    function openLegal(type){const content=type==='privacy'
-      ? "POLÍTICA DE PRIVACIDAD — RECURRENTES\n\nEste sitio ofrece información general y canales de contacto. Si decides comunicarte por WhatsApp, la conversación será tratada también conforme a las políticas de esa plataforma. No ingreses datos financieros, contraseñas ni información sensible en el chat.\n\nAntes de recopilar o utilizar datos personales mediante formularios, campañas o procesos de contratación, el responsable deberá publicar una política completa de tratamiento de datos que identifique finalidades, derechos del titular y canales para consultas y reclamos.\n\nContacto para solicitudes: WhatsApp 304 555 2432 o 321 754 3838."
-      : "TÉRMINOS Y CONDICIONES — RECURRENTES\n\nLa información de este sitio es orientativa y no constituye por sí sola una oferta vinculante ni confirma una contratación. Cada servicio, su alcance, disponibilidad, precio, forma de pago, tiempos de entrega y condiciones deberán acordarse expresamente antes de contratar.\n\nLos enlaces de WhatsApp dirigen a una plataforma externa. Recurrentes no controla su disponibilidad ni sus condiciones de uso.\n\nAntes de habilitar pagos en línea, se deben publicar las condiciones específicas de los servicios ofrecidos, políticas de cancelación, retracto, devoluciones o reembolsos que correspondan y los datos de contacto para reclamaciones.";
-      alert(content);
-    }
-    window.openLegal=openLegal;
-  </script>
-</body>
-</html>
+<button class="chat-launch" id="launch">✦ Habla con el asistente</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente virtual Recurrentes"><div class="chat-head"><div><b>Asistente Recurrentes</b><small>Respuestas automáticas básicas</small></div><button id="close">✕</button></div><div class="msgs" id="msgs"><div class="msg bot">¡Hola! Soy el asistente virtual de Recurrentes. Puedo ayudarte con información del sitio, noticias y canales de atención. ¿Qué deseas saber?</div><div class="quick"><button data-q="noticias">Ver noticias</button><button data-q="servicios">Consultar servicios</button><button data-q="contacto">Líneas de atención</button><button data-q="horario">Horario</button></div></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Escribe tu pregunta..." autocomplete="off"><button>Enviar</button></form></div>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const progress=document.getElementById('progress');window.addEventListener('scroll',()=>{const h=document.documentElement;progress.style.width=((h.scrollTop)/(h.scrollHeight-h.clientHeight)*100)+'%'});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const counters=document.querySelectorAll('[data-count]');const countObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){const el=e.target,target=Number(el.dataset.count),suffix=el.dataset.suffix||'';let start=0;const duration=1200;const t0=performance.now();function step(now){let p=Math.min((now-t0)/duration,1);let val=target*(1-Math.pow(1-p,3));el.textContent=(target%1?val.toFixed(2):Math.round(val).toLocaleString('es-CO'))+suffix;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step);countObs.unobserve(el)}}),{threshold:.5});counters.forEach(c=>countObs.observe(c));
+let filter='all';const search=document.getElementById('search'),cards=[...document.querySelectorAll('.news')];function apply(){let term=search.value.toLowerCase(),shown=0;cards.forEach(c=>{let ok=(filter==='all'||c.dataset.cat===filter)&&c.dataset.title.toLowerCase().includes(term);c.style.display=ok?'flex':'none';if(ok)shown++});document.getElementById('empty').style.display=shown?'none':'block'}document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;apply()}));search.addEventListener('input',apply);
+const chat=document.getElementById('chat'),msgs=document.getElementById('msgs');document.getElementById('launch').onclick=()=>chat.classList.toggle('open');document.getElementById('close').onclick=()=>chat.classList.remove('open');
+function say(t,k='bot'){let d=document.createElement('div');d.className='msg '+k;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+function addLinks(){let q=document.createElement('div');q.className='quick';[['WhatsApp 1','https://wa.me/573045552432?text='+encodeURIComponent('Hola, me gustaría una llamada o un mensaje por correo para tomar un servicio.')],['WhatsApp 2','https://wa.me/573217543838?text='+encodeURIComponent('Hola, me gustaría una llamada o un mensaje por correo para tomar un servicio.')]].forEach(([n,u])=>{let a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=n;a.style.cssText='border:1px solid #65e1d166;background:#102a38;color:#9ef0e2;border-radius:30px;padding:7px 10px;font-size:11px';q.appendChild(a)});msgs.appendChild(q);msgs.scrollTop=msgs.scrollHeight}
+function answer(s){let t=s.toLowerCase();if(/noticia|actualidad|leer/.test(t))return'Puedes explorar la sección Actualidad: reúne publicaciones sobre economía creativa, audiovisual y tecnología. Usa los filtros para encontrar temas y abre “Leer publicación original” para consultar cada fuente.';if(/servicio|contratar|precio|valor|pagar/.test(t))return'Para consultar un servicio, alcance, disponibilidad y precio, escribe directamente al equipo. La información se confirma antes de cualquier contratación.';if(/contacto|whatsapp|teléfono|linea|línea|llamar/.test(t))return'Puedes comunicarte por WhatsApp a estas líneas:\n304 555 2432\n321 754 3838\n\nTe comparto los accesos directos.';if(/horario|abierto|atienden/.test(t))return'El horario y la disponibilidad se confirman directamente con el equipo por WhatsApp.';if(/dirección|direccion|ubicación|ubicacion/.test(t))return'La dirección de contacto publicada es Calle 12A # 71B - 61, Bogotá D.C.';return'Gracias por tu mensaje. Para darte información precisa, te recomiendo contactar directamente al equipo de Recurrentes por las líneas de WhatsApp.'}
+function quick(q){say(q,'user');say(answer(q));addLinks()}
+document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>quick(({noticias:'Quiero ver las noticias',servicios:'Quiero consultar los servicios',contacto:'Necesito las líneas de atención',horario:'¿Cuál es el horario?'})[b.dataset.q]));
+document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();let i=document.getElementById('chatInput'),v=i.value.trim();if(!v)return;say(v,'user');say(answer(v));addLinks();i.value=''});
+</script>
+</body></html>
